@@ -1953,56 +1953,61 @@ local Library do
                 BackgroundColor3 = FromRGB(11, 11, 11)
             })  Items["Columns"]:AddToTheme({BackgroundColor3 = "Inline"})
 
-Instances:Create("Frame", {
-    Parent = Items["PageContent"].Instance,
-    Size = UDim2New(1, 0, 0, 1),
-    Name = "\0",
-    Position = Page.Search and UDim2New(0, 0, 0, 99) or UDim2New(0, 0, 0, 54),
-    BorderColor3 = FromRGB(0, 0, 0),
-    ZIndex = 2,
-    BorderSizePixel = 0,
-    BackgroundColor3 = FromRGB(24, 24, 24)
-}):AddToTheme({BackgroundColor3 = "Border"})
+            Instances:Create("Frame", {
+                Parent = Items["PageContent"].Instance,
+                Size = UDim2New(1, 0, 0, 1),
+                Name = "\0",
+                Position = Page.Search and UDim2New(0, 0, 0, 99) or UDim2New(0, 0, 0, 54),
+                BorderColor3 = FromRGB(0, 0, 0),
+                ZIndex = 2,
+                BorderSizePixel = 0,
+                BackgroundColor3 = FromRGB(24, 24, 24)
+            }):AddToTheme({BackgroundColor3 = "Border"})
 
-if Page.Search then
-    Items["SubPages"].Instance.Position = UDim2New(0, 15, 0, 60)
-    Items["Columns"].Instance.Position = UDim2New(0, 0, 0, 100)
-    Items["Columns"].Instance.Size = UDim2New(1, 0, 1, -100)
+            if Page.Search then
+                Items["SubPages"].Instance.Position = UDim2New(0, 15, 0, 60)
+                Items["Columns"].Instance.Position = UDim2New(0, 0, 0, 100)
+                Items["Columns"].Instance.Size = UDim2New(1, 0, 1, -100)
 
-    Items["Search"] = Instances:Create("TextLabel", {
-        Parent = Items["PageContent"].Instance,
-        FontFace = Library.Font,
-        ZIndex = 2,
-        TextSize = 14,
-        Size = UDim2New(0, 313, 0, 30),
-        TextColor3 = FromRGB(255, 255, 255),
-        BorderColor3 = FromRGB(0, 0, 0),
-        Text = "Trxp.cc",
-        Name = "\0",
-        Position = UDim2New(0, 15, 0, 15),
-        TextXAlignment = Enum.TextXAlignment.Left,
-        TextYAlignment = Enum.TextYAlignment.Center,
-        BorderSizePixel = 0,
-        BackgroundColor3 = FromRGB(14, 14, 14)
-    })
-    Items["Search"]:AddToTheme({BackgroundColor3 = "Background", TextColor3 = "Text"})
+                Items["Search"] = Instances:Create("TextBox", {
+                    Parent = Items["PageContent"].Instance,
+                    FontFace = Library.Font,
+                    Active = false,
+                    Selectable = false,
+                    PlaceholderColor3 = FromRGB(175, 175, 175),
+                    ZIndex = 2,
+                    TextSize = 14,
+                    Size = UDim2New(0, 313, 0, 30),
+                    TextColor3 = FromRGB(255, 255, 255),
+                    BorderColor3 = FromRGB(0, 0, 0),
+                    Text = "",
+                    Name = "\0",
+                    PlaceholderText = "Search",
+                    Position = UDim2New(0, 15, 0, 15),
+                    TextXAlignment = Enum.TextXAlignment.Left,
+                    CursorPosition = -1,
+                    BorderSizePixel = 0,
+                    BackgroundColor3 = FromRGB(14, 14, 14)
+                })  Items["Search"]:AddToTheme({BackgroundColor3 = "Background", TextColor3 = "Text"})
 
-    Instances:Create("UICorner", {
-        Parent = Items["Search"].Instance,
-        CornerRadius = UDimNew(0, 4)
-    })
+                Instances:Create("UICorner", {
+                    Parent = Items["Search"].Instance,
+                    CornerRadius = UDimNew(0, 4)
+                }) 
 
-    Instances:Create("UIStroke", {
-        Parent = Items["Search"].Instance,
-        Color = FromRGB(24, 24, 24),
-        ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-    }):AddToTheme({Color = "Border"})
+                Instances:Create("UIStroke", {
+                    Parent = Items["Search"].Instance,
+                    Color = FromRGB(24, 24, 24),
+                    ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+                }):AddToTheme({Color = "Border"})
 
-    Instances:Create("UIPadding", {
-        Parent = Items["Search"].Instance,
-        PaddingLeft = UDimNew(0, 8)
-    })
-end
+                Instances:Create("UIPadding", {
+                    Parent = Items["Search"].Instance,
+                    PaddingLeft = UDimNew(0, 8)
+                }) 
+            end
+        end
+
         local Debounce = false 
 
         function Page:Turn(Bool)
